@@ -1,18 +1,21 @@
-## ---------------------------------------------------------------
 
-## effective number of tests
-## -----------------------------
+#' Effective number of tests
+#'
+#' Calculates the effective number of tests performed in a GWAS, given the LD structure among the SNPs. SNPs that are highly correlated are not counted twice.
+#'
+#' @param mat matrix, either individual by SNP data, or correlation matrix of SNPs
+#' @param cor.true indicates if option mat is a correlation matrix or not
+#'
+#' @return zhc.correction number of effective tests
+#' @export
+#'
+#' @examples
+#'
+#' require(tidyverse)
+#' dat.sim <- tibble::tibble(g = rnorm(100)) %>% mutate(g2 = g*2)
+#' eff_nbr_tests(diag(10), cor.true = TRUE) ## 10, cause all independent
+#' eff_nbr_tests(dat.sim, cor.true = FALSE)
 
-#Aurelien:I finally find the paper (I was not looking in the right mailbox…)
-#So here is the link to the paper: http://www.ncbi.nlm.nih.gov/pubmed/18271029
-#I am not sure that Zoltan sent me some R code, but I retrieve the small one I wrote:
-#load("/home/sina/projects/projectPsycolaus/report/report_200Genes/history.RData")
-
-## from
-## http://stackoverflow.com/questions/5888287/running-cor-or-any-variant-over-a-sparse-matrix-in-r
-
-#mat <- snps.na.num
-## eff.number.tests
 eff_nbr_tests <- function(mat, cor.true = FALSE)
 {
     if(!cor.true)
@@ -34,14 +37,14 @@ eff_nbr_tests <- function(mat, cor.true = FALSE)
 }
 
 
-library(tidyverse)
-dat.sim <- tibble::tibble(g = rnorm(100)) %>% mutate(g2 = g*2)
+#library(tidyverse)
+#dat.sim <- tibble::tibble(g = rnorm(100)) %>% mutate(g2 = g*2)
 
-test_that("effective number of tests", {
-  expect_equal(f.eff.number.tests(diag(2), cor.true = TRUE), 2)
-  expect_equal(f.eff.number.tests(diag(10), cor.true = TRUE), 10)
-  expect_equal(f.eff.number.tests(dat.sim, cor.true = FALSE), 1)
-})
+#test_that("effective number of tests", {
+#  expect_equal(f.eff.number.tests(diag(2), cor.true = TRUE), 2)
+#  expect_equal(f.eff.number.tests(diag(10), cor.true = TRUE), 10)
+#  expect_equal(f.eff.number.tests(dat.sim, cor.true = FALSE), 1)
+#})
 
 # ## parallelised version, when HUGE matrix, but not tested
 # ## ----------------------------------------------------
@@ -104,5 +107,21 @@ test_that("effective number of tests", {
 #After that in a while loop, I sum the variance until it explains 99.5% of the signal, the value of the index when I exit the while loop will be my effective number of test.
 
 
+
+## ---------------------------------------------------------------
+
+## effective number of tests
+## -----------------------------
+
+#Aurelien:I finally find the paper (I was not looking in the right mailbox…)
+#So here is the link to the paper: http://www.ncbi.nlm.nih.gov/pubmed/18271029
+#I am not sure that Zoltan sent me some R code, but I retrieve the small one I wrote:
+#load("/home/sina/projects/projectPsycolaus/report/report_200Genes/history.RData")
+
+## from
+## http://stackoverflow.com/questions/5888287/running-cor-or-any-variant-over-a-sparse-matrix-in-r
+
+#mat <- snps.na.num
+## eff.number.tests
 
 

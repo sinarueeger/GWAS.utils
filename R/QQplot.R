@@ -1,8 +1,21 @@
 
-
-## pretty QQ plot
-## --------------------------
-
+#' Pretty QQ plot
+#'
+#' Creates a QQplot, given P-values
+#'
+#' @param p numeric vector, values between 0 and 1.
+#' @param neff number of effective tests. see function `nbr_eff_tests`
+#' @param main Main title
+#' @param col color code
+#' @param add logic, added to plot or not
+#' @param ... pass plot arguments on
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'
+#' QQplot(runif(100))
 QQplot <- function(p, neff = NULL, main = "", col = "black", add = FALSE, ...) {
   p <- p[!is.na(p)]
   N <- length(p)
