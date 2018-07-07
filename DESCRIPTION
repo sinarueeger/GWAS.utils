@@ -1,8 +1,8 @@
 Package: cookbookRsina
 Version: 0.0.0.9000
-Title: What the Package Does (One Line, Title Case)
+Title: Loads all packages and functions that Sina uses at work.
 Description: What the package does (one paragraph).
-Authors@R: person("First", "Last", , "first.last@example.com", c("aut", "cre"))
+Authors@R: person("Sina", "Rüeger", , "sina.rueeger@gmail.com", c("aut", "cre"))
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
