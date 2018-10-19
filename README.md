@@ -6,7 +6,7 @@ R package with basic helper functions for GWAS data.
 ## Installation
 
 ```
-install.packages("devtools")
+# install.packages("devtools")
 devtools::install_github("sinarueeger/GWAS.utils")
 ```
 
