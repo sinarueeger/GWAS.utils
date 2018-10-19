@@ -1,8 +1,9 @@
 
 
 
+
 test_that("Testing EAF vector with NA, 0, 1, 0.7", {
-  expect_equal(eaf2maf(c(NA, 0, 1, 0.7)), c(NA, 0, 0, 0.3))
+  expect_equal(eaf2maf(c(NA, 0, 1, 0.7)), c(NA_integer_, 0, 0, 0.3))
 })
 
 

@@ -15,7 +15,7 @@
   library(RColorBrewer)
   library(parallel) ## parallel computing >> better to use arrays though
 
-  theme_set(theme_sina())
+#  theme_set(theme_sina())
 
 
 
