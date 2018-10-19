@@ -2,14 +2,15 @@
 % Please edit documentation in R/QQplot.R
 \name{QQplot}
 \alias{QQplot}
-\title{Pretty QQ plot}
+\title{Pretty Q-Q-plot for P values}
 \usage{
-QQplot(p, neff = NULL, main = "", col = "black", add = FALSE, ...)
+QQplot(p, neff = NULL, main = "QQplot", col = "black", add = FALSE,
+  ...)
 }
 \arguments{
 \item{p}{numeric vector, values between 0 and 1.}
 
-\item{neff}{number of effective tests. see function \code{nbr_eff_tests}}
+\item{neff}{number of effective tests. see function \code{\link{nbr_eff_tests}}}
 
 \item{main}{Main title}
 
@@ -20,9 +21,15 @@ QQplot(p, neff = NULL, main = "", col = "black", add = FALSE, ...)
 \item{...}{pass plot arguments on}
 }
 \description{
-Creates a QQplot, given P-values
+Creates a QQplot, given P-values, which should be uniformly distributed
 }
 \examples{
 
 QQplot(runif(100))
+QQplot(runif(100), main = "This is the main title")
+QQplot(runif(100), add = TRUE, col = "green")
+
+}
+\seealso{
+\code{\link{ggGWAS::geom_qqplot()}}
 }

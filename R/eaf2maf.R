@@ -9,7 +9,7 @@
 #'
 #' @param eaf effect allele frequecy, numeric value between 0 and 1.
 #'
-#' @return maf
+#' @return numeric \code{maf} vector, same length as eaf
 #' @export
 #' @details To turn MAFs into EAFs knowledge about the effect allele is needed.
 #'

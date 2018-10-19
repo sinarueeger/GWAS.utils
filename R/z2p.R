@@ -8,15 +8,16 @@
 #' for absolute Z-statistics up to x
 #'
 #' @param Z Z-statistic, numeric vector.
-#' @param method "prnorm" (default), "Rmpfr::pnorm" (from the Rmpfr package)
+#' @param method \code{"prnorm"} (default), \code{"Rmpfr::pnorm"} (from the Rmpfr package)
 #'
 #' @return P P-value, same length as Z.
 #' @export
 #'
-#' @details The usual P value calc is `pnorm(abs(Z), lower = FALSE) * 2`. But for larger absolute
-#' Z statistics (~ 40) we can use the log `exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2`.
-#' For anything that is larger, we can use the R package `Rmpfr::pnorm` that helps us with small digits.
-#' See also this post: https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc
+#' @details The usual P value calc is \code{pnorm(abs(Z), lower = FALSE) * 2}. But for larger absolute
+#' Z statistics (~ 40) we can use the log \code{exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2}.
+#' For anything that is larger, we can use the R package \code{Rmpfr::pnorm} that helps us with small digits.
+#'
+#' @references See also this post: https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc
 #'
 #' @examples
 #' z2p(c(-1.959964, 1.96))

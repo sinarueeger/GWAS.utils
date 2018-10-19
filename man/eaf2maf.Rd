@@ -2,22 +2,27 @@
 % Please edit documentation in R/eaf2maf.R
 \name{eaf2maf}
 \alias{eaf2maf}
-\title{Transforms EAF to MAF
-Turns effect allele frequency (between 0 and 1) into minor allele frequency (between 0 and 0.5)}
+\title{Transforms an effect allele frequency (EAF) to a minor allele frequency (MAF).}
 \usage{
-eaf2maf(eaf)
+eaf2maf(eaf = NULL)
 }
 \arguments{
-\item{eaf}{effect allele frequecy, numeric between 0 and 1.}
+\item{eaf}{effect allele frequecy, numeric value between 0 and 1.}
 }
 \value{
-P
+maf
 }
 \description{
-Transforms EAF to MAF
-Turns effect allele frequency (between 0 and 1) into minor allele frequency (between 0 and 0.5)
+EAFs can range between 0 and 1 and is tied to a phenotype ("effect", the frequency of
+the effect allele in a specific dataset). Compared to that, MAFs represent the frequency
+of the minor allele, hence it ranges between 0 and 0.5. All EAFs with a value larger than
+0.5 are turned into MAFs by subtracting them from 1.
+}
+\details{
+To turn MAFs into EAFs knowledge about the effect allele is needed.
 }
 \examples{
 eaf2maf(0.7)
+eaf2maf(c(0.78, 0.32))
 
 }
