@@ -28,10 +28,8 @@
 #'
 #'
 #'
-z2p <- function(Z, method = c("pnorm"))
-{
-  if (any(is.infinite(Z)))
-  {
+z2p <- function(Z, method = c("pnorm")) {
+  if (any(is.infinite(Z))) {
     warning(
       "The 'Z' vector contains infinite values. These will be turned into NAs, because no meaninful P value can be calculated from that."
     )
@@ -41,11 +39,9 @@ z2p <- function(Z, method = c("pnorm"))
   if (method == "pnorm") {
     P <- exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2
 
-    if (any(P == 0, na.rm = TRUE))
-    {
+    if (any(P == 0, na.rm = TRUE)) {
       warning("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
     }
-
   }
 
   if (method == "Rmpfr::pnorm") {
@@ -55,12 +51,10 @@ z2p <- function(Z, method = c("pnorm"))
     ## remove all NAs
     P <- Rmpfr::mpfr(abs(Z), precBits = 100)
 
-    P[!is.na(Z)] <- 2 * Rmpfr::pnorm(Rmpfr::mpfr(abs(Z[!is.na(Z)] ), precBits = 100),
-                     lower.tail = FALSE, log.p = FALSE)
-
-
-      }
+    P[!is.na(Z)] <- 2 * Rmpfr::pnorm(Rmpfr::mpfr(abs(Z[!is.na(Z)]), precBits = 100),
+      lower.tail = FALSE, log.p = FALSE
+    )
+  }
 
   return(P)
-
 }

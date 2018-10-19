@@ -20,9 +20,8 @@
 #' qqnorm(X)
 #' qqnorm(X.trans)
 
-trans_inv_normal <- function(x, const = 3/8) {
+trans_inv_normal <- function(x, const = 3 / 8) {
   rank.x <- rank(x, na.last = "keep")
   N <- length(na.omit(x))
   qnorm((rank.x - const) / (N - 2 * const + 1))
 }
-
