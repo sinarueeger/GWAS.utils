@@ -17,23 +17,19 @@
 #' eff_nbr_tests(diag(10), cor.true = TRUE) ## 10, because all are independent
 #' eff_nbr_tests(dat.sim, cor.true = FALSE)
 
-eff_nbr_tests <- function(mat, cor.true = FALSE)
-{
-    if(!cor.true)
-    {
-        cor.mat <- cor(mat, use = 'pairwise.complete.obs')
-    }else{
-        cor.mat <- mat
-    }
-    cor.mat[which(is.na(cor.mat))] <- 0
-    svd.data <- svd(cor.mat)
-    sum.tp         <- 0
-    zhc.correction <- 0
-    while (sum.tp/sum(svd.data$d) < 0.995)
-    {
-        zhc.correction     <- zhc.correction+1
-        sum.tp <- sum.tp+svd.data$d[zhc.correction]
-    }
-    return(zhc.correction)
+eff_nbr_tests <- function(mat, cor.true = FALSE) {
+  if (!cor.true) {
+    cor.mat <- cor(mat, use = "pairwise.complete.obs")
+  } else {
+    cor.mat <- mat
+  }
+  cor.mat[which(is.na(cor.mat))] <- 0
+  svd.data <- svd(cor.mat)
+  sum.tp <- 0
+  zhc.correction <- 0
+  while (sum.tp / sum(svd.data$d) < 0.995) {
+    zhc.correction <- zhc.correction + 1
+    sum.tp <- sum.tp + svd.data$d[zhc.correction]
+  }
+  return(zhc.correction)
 }
-
