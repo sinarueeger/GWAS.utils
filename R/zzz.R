@@ -8,15 +8,21 @@
 ## some packages that I want to have loaded all the time
 .onLoad <- function(libname, pkgname) {
   library(devtools)
-  library(tidyverse)
   library(testthat)
   library(glue)
   library(here)
-  library(forcats)
   library(ggrepel) ## repelling text annotation
   library(RColorBrewer)
   library(parallel) ## parallel computing >> better to use arrays though
   library(styler)
+  library(ggplot2)
+  library(dplyr)
+  library(readr)
+  library(tidyr)
+  library(purrr)
+  library(tibble)
+  library(stringr)
+  library(forcats)
 
 #  theme_set(theme_sina())
 
