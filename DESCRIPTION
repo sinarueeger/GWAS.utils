@@ -1,11 +1,12 @@
-Package: cookbookRsina
+Package: GWAS.utils
 Version: 0.0.0.9000
-Title: Loads all packages and functions that Sina uses at work.
+Title: GWAS specific functions
 Description: What the package does (one paragraph).
-Authors@R: person("Sina", "Rüeger", , "sina.rueeger@gmail.com", c("aut", "cre"))
+Authors@R: person("Sina", "R<U+00FC>eger", , "sina.rueeger@gmail.com", c("aut", "cre"))
 License: What license it uses
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
+Suggests: testthat
