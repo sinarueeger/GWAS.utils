@@ -20,6 +20,9 @@ QQplot(p, neff = NULL, main = "QQplot", col = "black", add = FALSE,
 
 \item{...}{pass plot arguments on}
 }
+\value{
+plot (base)
+}
 \description{
 Creates a QQplot, given P-values, which should be uniformly distributed
 }

@@ -10,7 +10,7 @@ eaf2maf(eaf = NULL)
 \item{eaf}{effect allele frequecy, numeric value between 0 and 1.}
 }
 \value{
-maf
+numeric \code{maf} vector, same length as eaf
 }
 \description{
 EAFs can range between 0 and 1 and is tied to a phenotype ("effect", the frequency of
