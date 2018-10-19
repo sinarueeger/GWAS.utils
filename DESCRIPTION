@@ -9,6 +9,7 @@ LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.0
-Suggests: testthat
-tibble
-dplyr
+Suggests: testthat,
+  tibble
+  dplyr
+Imports: Rmpfr

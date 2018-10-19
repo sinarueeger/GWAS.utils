@@ -2,27 +2,27 @@
 #'
 #' Transforms any variable into a standard normal distributed variable N(0,1).
 #'
-#' @param x numeric
-#'
-#' @return x.trans standard normal distributed
+#' @param x numeric vector that needs to be transformed
+#' @param const numeric value, 3/8 and 0.5 recommended.
+#' @return Numeric vector of length(x) that is standard normally distributed
 #' @export
+#'
+#' @references See also https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2921808/
 #'
 #' @examples
 #' X <- runif(1000)
 #'
-#' X.trans <- inv_normal(X)
+#' X.trans <- trans_inv_normal(X)
 #' par(mfrow = c(1,2))
 #' hist(X)
 #' hist(X.trans)
+#' par(mfrow = c(1,2))
+#' qqnorm(X)
+#' qqnorm(X.trans)
 
-inv_normal <- function(x)
-  {
-
-  x.trans <- qnorm((rank(x, na.last = "keep")-0.5)/sum(!is.na(x)))
-  return(x.trans)
-  }
-
-#test_that("inv.normal of NA", {
-##  expect_equal(is.na(f.inv.normal(NA)), TRUE)
-#})
+trans_inv_normal <- function(x, const = 3/8) {
+  rank.x <- rank(x, na.last = "keep")
+  N <- length(na.omit(x))
+  qnorm((rank.x - const) / (N - 2 * const + 1))
+}
 
