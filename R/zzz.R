@@ -7,22 +7,10 @@
 
 ## some packages that I want to have loaded all the time
 .onLoad <- function(libname, pkgname) {
-  library(devtools)
-  library(testthat)
-  library(glue)
-  library(here)
-  library(ggrepel) ## repelling text annotation
-  library(RColorBrewer)
-  library(parallel) ## parallel computing >> better to use arrays though
-  library(styler)
-  library(ggplot2)
-  library(dplyr)
-  library(readr)
-  library(tidyr)
-  library(purrr)
-  library(tibble)
-  library(stringr)
-  library(forcats)
+
+  pkgs <- c("devtools", "testthat", "glue", "here", "ggrepel", "RColorBrewer", "parallel", "styler", "ggplot2", "dplyr", "readr", "tidyr", "purrr", "tibble", "stringr", "forcats")
+  lapply(pkgs, function(x) suppressPackageStartupMessages(library(x, character.only = TRUE)))
+
 
 #  theme_set(theme_sina())
 
