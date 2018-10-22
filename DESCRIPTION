@@ -2,12 +2,18 @@ Package: GWAS.utils
 Version: 0.0.0.9000
 Title: GWAS specific functions
 Description: What the package does (one paragraph).
-Authors@R: person("Sina", "R<U+00FC>eger", , "sina.rueeger@gmail.com", c("aut", "cre"))
-License: What license it uses
+Authors@R: c(
+    person("Sina", "R<U+00FC>eger", , "sina.rueeger@gmail.com", c("aut", "cre")),
+    person("Aur<U+00E9>lien", "Mac<U+00E9>", , "", c("aut")),
+    person("Zolt<U+00E1>n", "Kutalik", , "", c("aut")))
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.0
-Suggests: testthat, tibble, dplyr
-Imports: Rmpfr
+Suggests: 
+  testthat, 
+  magrittr, 
+  Rmpfr
+BugReports: https://github.com/sinarueeger/GWAS.utils/issues

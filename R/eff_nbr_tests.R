@@ -13,7 +13,7 @@
 #'
 #' @examples
 #'
-#' dat.sim <- tibble::tibble(g = rnorm(100)) %>% dplyr::mutate(g2 = g*2)
+#' dat.sim <- data.frame(g = rnorm(100)) %>% dplyr::mutate(g2 = g*2)
 #' eff_nbr_tests(diag(10), cor.true = TRUE) ## 10, because all are independent
 #' eff_nbr_tests(dat.sim, cor.true = FALSE)
 
