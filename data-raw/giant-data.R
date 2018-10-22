@@ -43,27 +43,8 @@ dat.giant <- readr::read_tsv(glue::glue("{path.data}/Meta-analysis_Locke_et_al%2
 dat.giant <- dat.giant %>%  sample_n(n.sample)
 
 ## select a set of columns
-giant <- dat.giant %>% select(-contains("COJO")) ## we don't want the COJO summary stats
+giant <- dat.giant %>% select(-contains("COJO")) %>% ## we don't want the COJO summary stats
+  ##  and all to lowercase
 
 ## Now we can store everything in the data folder.
 devtools::use_data(giant, compress = "xz", overwrite = T)
-
-
-## Description ----------------------------------------------------------
-
-## Source data: https://portals.broadinstitute.org/collaboration/giant/images/c/c8/Meta-analysis_Locke_et_al%2BUKBiobank_2018_UPDATED.txt.gz
-## Source description: https://portals.broadinstitute.org/collaboration/giant/images/0/01/README_summary_statistics_Yengo_et_al_2018.txt
-## Source article: https://www.biorxiv.org/content/early/2018/03/22/274654
-## This describes the columns of the summary statistics generated in Yengo et al. (2018)
-## Meta-analysis of genome-wide association studies for height and body mass index in ~700,000 individuals of European ancestry
-
-# SNP:                        RS ID
-# CHR:                        Chromosome
-# POS:                        Physical position (Genome build hg19)
-# Tested_Allele:              Allele corresponding to the effect size (BETA/BETA_COJO)
-# Other_Allele:               Other allele
-# Freq_Tested_Allele_in_HRS:  Frequency of the tested allele in the Health and Retirement Study (from 8,552 unrelated participants).
-# BETA:                       Marginal SNP effect size.
-# SE:                         Standard error of the effect size.
-# P:                          P-value measuring the significance of the marginal effect.
-# N:                          Sample size.
