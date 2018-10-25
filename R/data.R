@@ -36,17 +36,20 @@ NULL
 #'
 #'
 #'
-#' @format The data set contains x variables:
+#' @format The data set contains 23 variables of 784 individuals. Twenty-one of these variables represent minor allele counts of SNPs, where the name is a combination of SNP identifier and the minor allele.
 #' \describe{
-#' \item{\code{id}}{}
-#' \item{\code{height}}{}
-#' \item{\code{rs1}}{SNP1 ...}
+#' \item{\code{id}}{Personal identifier}
+#' \item{\code{height}}{Human height in cm}
+#' \item{\code{rs1985272_C}}{Minor allele counts for SNP identifier rs1985272, minor allele: C.}
+#' \item{\code{...}}{}
+#' \item{\code{rs10489858_C}}{Minor allele counts for SNP identifier rs10489858, minor allele: C.}
+
 #' }
 #'
-#' @details
+#' @details Minor allele count per person is the number of minor allele an individual carries, possible values are 0, 1 and 2. For example, for variable \code{rs1985272_C} the minor allele of SNP id rs1985272 is C. In this case, an entry of 0 means that this
+#' individual has no minor allele C, 1 means this individual has one minor allele C, and 2 means this person has two copies of the minor allele C.
 #' @source
 #' Data: \url{}
 #' Data description: \url{}
 #' Manuscript: \url{}
 "opensnp"
-
