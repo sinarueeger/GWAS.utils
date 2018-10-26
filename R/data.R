@@ -49,7 +49,7 @@ NULL
 #' @details Minor allele count per person is the number of minor allele an individual carries, possible values are 0, 1 and 2. For example, for variable \code{rs1985272_C} the minor allele of SNP id rs1985272 is C. In this case, an entry of 0 means that this
 #' individual has no minor allele C, 1 means this individual has one minor allele C, and 2 means this person has two copies of the minor allele C.
 #' @source
-#' Data: \url{}
-#' Data description: \url{}
-#' Manuscript: \url{}
+#' Data : CrowdAI / OpenSNP - height prediction challenge by Oliver Naret, \url{https://zenodo.org/record/1442755#.W9LfWSexVOE}
+#' Manuscript:
+#' openSNP: \url{https://opensnp.org/} and Greshake B, Bayer PE, Rausch H, Reda J (2014) openSNP–A Crowdsourced Web Resource for Personal Genomics. PLOS ONE 9(3): e89204. \url{https://doi.org/10.1371/journal.pone.0089204}
 "opensnp"

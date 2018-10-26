@@ -13,9 +13,9 @@
 \item{\code{rs10489858_C}}{Minor allele counts for SNP identifier rs10489858, minor allele: C.}
 }}
 \source{
-Data: \url{}
-Data description: \url{}
-Manuscript: \url{}
+Data : CrowdAI / OpenSNP - height prediction challenge by Oliver Naret, \url{https://zenodo.org/record/1442755#.W9LfWSexVOE}
+Manuscript:
+openSNP: \url{https://opensnp.org/} and Greshake B, Bayer PE, Rausch H, Reda J (2014) openSNP–A Crowdsourced Web Resource for Personal Genomics. PLOS ONE 9(3): e89204. \url{https://doi.org/10.1371/journal.pone.0089204}
 }
 \usage{
 opensnp
