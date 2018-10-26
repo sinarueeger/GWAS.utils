@@ -1,4 +1,6 @@
-geno.mat <- tibble::tibble(g = rnorm(100)) %>% mutate(g2 = g * 2)
+context("test-eff_number_tests")
+
+geno.mat <- tibble::tibble(g = rnorm(100)) %>% dplyr::mutate(g2 = g * 2)
 cor.mat <- diag(2)
 
 test_that("test simple values", {

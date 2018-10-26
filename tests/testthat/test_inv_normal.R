@@ -1,3 +1,5 @@
+context("test-trans_inv_normal")
+
 set.seed(3)
 vec.normal <- rnorm(10000)
 

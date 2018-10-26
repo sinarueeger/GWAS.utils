@@ -1,5 +1,5 @@
 
-
+context("test-eaf2maf")
 
 
 test_that("Testing EAF vector with NA, 0, 1, 0.7", {

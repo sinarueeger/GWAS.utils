@@ -1,6 +1,3 @@
-#' @importFrom tibble tibble
-NULL
-
 #' Height GWAS
 #'
 #' Associations between human body height and genetic markers.
@@ -51,5 +48,5 @@ NULL
 #' @source
 #' Data : CrowdAI / OpenSNP - height prediction challenge by Oliver Naret, \url{https://zenodo.org/record/1442755#.W9LfWSexVOE}
 #' Manuscript:
-#' openSNP: \url{https://opensnp.org/} and Greshake B, Bayer PE, Rausch H, Reda J (2014) openSNP–A Crowdsourced Web Resource for Personal Genomics. PLOS ONE 9(3): e89204. \url{https://doi.org/10.1371/journal.pone.0089204}
+#' openSNP: \url{https://opensnp.org/} and Greshake B, Bayer PE, Rausch H, Reda J (2014) openSNP<U+2013>A Crowdsourced Web Resource for Personal Genomics. PLOS ONE 9(3): e89204. \url{https://doi.org/10.1371/journal.pone.0089204}
 "opensnp"

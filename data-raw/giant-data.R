@@ -40,11 +40,12 @@ system(glue::glue("gunzip {path.data}/Meta-analysis_Locke_et_al%2BUKBiobank_2018
 set.seed(3)
 n.sample <- 1e4
 dat.giant <- readr::read_tsv(glue::glue("{path.data}/Meta-analysis_Locke_et_al%2BUKBiobank_2018_UPDATED.txt"))
-dat.giant <- dat.giant %>%  sample_n(n.sample)
+dat.giant <- dat.giant %>% sample_n(n.sample)
 
 ## select a set of columns
-giant <- dat.giant %>% select(-contains("COJO")) %>% ## we don't want the COJO summary stats
+giant <- dat.giant %>%
+  select(-contains("COJO")) %>% ## we don't want the COJO summary stats
   ##  and all to lowercase
 
-## Now we can store everything in the data folder.
-devtools::use_data(giant, compress = "xz", overwrite = T)
+  ## Now we can store everything in the data folder.
+  devtools::use_data(giant, compress = "xz", overwrite = T)

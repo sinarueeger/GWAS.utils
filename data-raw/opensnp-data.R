@@ -21,8 +21,10 @@ untar(glue::glue("{path.data}/CrowdAI_v3.tar.gz"), exdir = glue::glue("{path.dat
 cat(
   system(
     glue::glue(
-      "tree {path.data}/CrowdAI_v3"),
-    intern = TRUE),
+      "tree {path.data}/CrowdAI_v3"
+    ),
+    intern = TRUE
+  ),
   sep = "\n"
 )
 
@@ -42,7 +44,7 @@ cat(
 ## the snps we select are in two regions, around one of the top SNPs associated with height:
 ## info from here: Supp table 2 (https://www.nature.com/articles/ng.3097#s2)
 ## vcf to a text file, you will need to use plink for this:
-path.gt <- here::here("data-raw","CrowdAI_v3","subset")
+path.gt <- here::here("data-raw", "CrowdAI_v3", "subset")
 path.out <- here::here("data")
 system(glue::glue("./data-raw/plink --vcf {path.gt}/genotyping_data_subset_train.vcf --recodeA --out {path.data}/genotyping_data_subset_train --chr 1 --from-kb 15000 --to-kb 20000 "))
 
@@ -64,7 +66,7 @@ dat.geno <- readr::read_delim(glue::glue("{path.data}/genotyping_data_subset_tra
 dat.geno <- dat.geno %>% select(-c(IID, PAT, MAT, SEX, PHENOTYPE)) %>% rename(id = FID)
 
 ## prepare phenotype data
-path.pheno <- here::here("data-raw","CrowdAI_v3")
+path.pheno <- here::here("data-raw", "CrowdAI_v3")
 dat.pheno <- readr::read_delim(glue::glue("{path.pheno}/training_set_details.txt"), delim = " ")
 
 ## we will only use height here, not height-class
