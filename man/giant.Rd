@@ -17,6 +17,11 @@
 \item{\code{p}}{P-value of the effect size}
 \item{\code{n}}{Sample size}
 }}
+\source{
+Data: \url{https://portals.broadinstitute.org/collaboration/giant/images/c/c8/Meta-analysis_Locke_et_al\%2BUKBiobank_2018_UPDATED.txt.gz}
+Data description: \url{https://portals.broadinstitute.org/collaboration/giant/images/0/01/README_summary_statistics_Yengo_et_al_2018.txt}
+Manuscript: Yengo et al. (2018) \url{https://www.biorxiv.org/content/early/2018/03/22/274654}
+}
 \usage{
 giant
 }

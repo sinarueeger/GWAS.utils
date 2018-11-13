@@ -38,10 +38,6 @@ z2p <- function(Z, method = c("pnorm")) {
 
   if (method == "pnorm") {
     P <- exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2
-
-    # if (any(P == 0, na.rm = TRUE)) {
-    #    warning("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
-    #  }
   }
 
   if (method == "Rmpfr::pnorm") {

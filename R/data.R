@@ -23,7 +23,7 @@
 #'  (indicated in \code{snp}) plus covariates as predictors.
 #'
 #' @source
-#' Data: \url{https://portals.broadinstitute.org/collaboration/giant/images/c/c8/Meta-analysis_Locke_et_al%2BUKBiobank_2018_UPDATED.txt.gz}
+#' Data: \url{https://portals.broadinstitute.org/collaboration/giant/images/c/c8/Meta-analysis_Locke_et_al\%2BUKBiobank_2018_UPDATED.txt.gz}
 #' Data description: \url{https://portals.broadinstitute.org/collaboration/giant/images/0/01/README_summary_statistics_Yengo_et_al_2018.txt}
 #' Manuscript: Yengo et al. (2018) \url{https://www.biorxiv.org/content/early/2018/03/22/274654}
 "giant"
