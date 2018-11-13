@@ -13,8 +13,8 @@
 #' @return P P-value, same length as Z.
 #' @export
 #'
-#' @details The usual P value calc is \code{pnorm(abs(Z), lower = FALSE) * 2}. But for larger absolute
-#' Z statistics (~ 40) we can use the log \code{exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2}.
+#' @details The usual P value calculation for |Z|-statistics < 38 is \code{pnorm(abs(Z), lower = FALSE) * 2} or,
+#' alternatively, \code{exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2}.
 #' For anything that is larger, we can use the R package \code{Rmpfr::pnorm} that helps us with small digits.
 #'
 #' @references See also this post: https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc
@@ -39,9 +39,9 @@ z2p <- function(Z, method = c("pnorm")) {
   if (method == "pnorm") {
     P <- exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2
 
-    if (any(P == 0, na.rm = TRUE)) {
-      warning("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
-    }
+    # if (any(P == 0, na.rm = TRUE)) {
+    #    warning("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
+    #  }
   }
 
   if (method == "Rmpfr::pnorm") {
@@ -52,7 +52,7 @@ z2p <- function(Z, method = c("pnorm")) {
     P <- Rmpfr::mpfr(abs(Z), precBits = 100)
 
     P[!is.na(Z)] <- 2 * Rmpfr::pnorm(Rmpfr::mpfr(abs(Z[!is.na(Z)]), precBits = 100),
-      lower.tail = FALSE, log.p = FALSE
+                                     lower.tail = FALSE, log.p = FALSE
     )
   }
 
