@@ -19,7 +19,7 @@
   col.green <- "#4daf4a"
   col.blue <- "#377eb8"
   col.red <- "#e41a1c"
-  col.gray <- gray(0.3)
+  col.gray <- grDevices::gray(0.3)
 
 
   invisible()
