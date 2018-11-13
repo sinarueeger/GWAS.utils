@@ -12,7 +12,7 @@
   lapply(pkgs, function(x) suppressPackageStartupMessages(library(x, character.only = TRUE)))
 
 
-#  theme_set(theme_sina())
+  theme_set(theme_bw())
 
   ## some default colors (from R color brewer (set1))
   col.green <- "#4daf4a"
