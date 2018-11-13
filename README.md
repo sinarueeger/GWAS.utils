@@ -16,30 +16,30 @@ There are currenlty five functions:
 
 - `eaf2maf`: Transforms effect allele frequencies into minor allele frequencies. 
   
-  Input ➡️ : numeric vector
+  *Input* ➡️ : numeric vector
   
-  Output 🔙 : numeric vector. 
+  *Output* 🔙 : numeric vector. 
   
 - `QQplot`: Q-Q-plot of P-values (uniformly distributed under the null). 
   
-  Input ➡️ : numeric vector
+  *Input* ➡️ : numeric vector
   
-  Output: base plot. 
+  *Output*: base plot. 
 
 - `z2p`: Transforms Z-statistics to P-values, includes an option for very large Z-statistics. 
 
-  Input ➡️ : numeric vector
+  *Input* ➡️ : numeric vector
 
-  Output 🔙 : numeric vector. 
+  *Output* 🔙 : numeric vector. 
 
 - `eff_nbr_tests`: Calculates the effective number of tests of a GWAS, based on the correlation between the SNPs. 
   
-  Input ➡️ : genotype data or correlation matrix
+  *Input* ➡️ : genotype data or correlation matrix
   
-  Output 🔙 : effective number of tests. 
+  *Output* 🔙 : effective number of tests. 
 
 - `inv_normal`: Inverse normal transformation of a variable.
 
-  Input ➡️ : numeric vector
+  *Input* ➡️ : numeric vector
 
-  Output 🔙 : numeric vector.
+  *Output* 🔙 : numeric vector.
