@@ -2,13 +2,14 @@
 ## Setup for R
 ## --------------------------------------------------------------
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("Guete Morgä!")
+  packageStartupMessage("Hello!")
 }
 
 ## some packages that I want to have loaded all the time
 .onLoad <- function(libname, pkgname) {
 
-  pkgs <- c("devtools", "testthat", "glue", "here", "ggrepel", "RColorBrewer", "parallel", "styler", "ggplot2", "dplyr", "readr", "tidyr", "purrr", "tibble", "stringr", "forcats")
+  pkgs <- c("devtools", "testthat", "glue", "here", "ggrepel", "RColorBrewer", "parallel", "styler",
+            "ggplot2", "dplyr", "readr", "tidyr", "purrr", "tibble", "stringr", "forcats", "namer")
   lapply(pkgs, function(x) suppressPackageStartupMessages(library(x, character.only = TRUE)))
 
 
