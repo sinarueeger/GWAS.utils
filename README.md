@@ -37,6 +37,13 @@ There are currenlty five functions:
   *Input* ➡️ : genotype data or correlation matrix
   
   *Output* 🔙 : effective number of tests. 
+  
+- `genomic_inflation`: Calculates the genomic inflation factor of GWAS summary statistics.
+  
+  *Input* ➡️ : Z-statistics vector or P-value vector
+  
+  *Output* 🔙 : Genomic inflation factor
+  
 
 - `inv_normal`: Inverse normal transformation of a variable.
 
