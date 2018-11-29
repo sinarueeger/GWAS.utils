@@ -13,8 +13,8 @@ ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.0
 Imports:
-    magrittr,
-    dplyr
+    dplyr,
+    magrittr
 Suggests: 
   testthat, 
   Rmpfr
