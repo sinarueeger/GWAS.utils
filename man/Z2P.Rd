@@ -29,9 +29,6 @@ z2p(20)
 z2p(20, method = "Rmpfr::pnorm")
 z2p(200, method = "pnorm") # the default
 z2p(200, method = "Rmpfr::pnorm")
-
-
-
 }
 \references{
 See also this post: https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc

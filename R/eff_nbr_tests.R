@@ -12,10 +12,9 @@
 #' @references Implemented from \link{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
 #'
 #' @examples
-#' dat.sim <- data.frame(g = rnorm(100)) %>% dplyr::mutate(g2 = g*2)
+#' dat.sim <- data.frame(g = rnorm(100)) %>% dplyr::mutate(g2 = g * 2)
 #' eff_nbr_tests(diag(10), cor.true = TRUE) ## 10, because all are independent
 #' eff_nbr_tests(dat.sim, cor.true = FALSE)
-
 eff_nbr_tests <- function(mat, cor.true = FALSE) {
   if (!cor.true) {
     cor.mat <- cor(mat, use = "pairwise.complete.obs")

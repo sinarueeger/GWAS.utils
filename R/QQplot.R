@@ -5,7 +5,7 @@
 #' Creates a QQplot, given P-values, which should be uniformly distributed
 #'
 #' @param p numeric vector, values between 0 and 1.
-#' @param neff number of effective tests. see function \code{\link{nbr_eff_tests}}
+#' @param neff number of effective tests. see function \code{\link{eff_nbr_tests}}
 #' @param main Main title
 #' @param col color code
 #' @param add logic, added to plot or not
@@ -14,13 +14,12 @@
 #' @return plot (base)
 #' @export
 #'
-#' @seealso \code{\link{ggGWAS::geom_qqplot()}}
+#' @seealso \code{\link[ggGWAS]{geom_qqplot}}
 #' @examples
 #'
 #' QQplot(runif(100))
 #' QQplot(runif(100), main = "This is the main title")
 #' QQplot(runif(100), add = TRUE, col = "green")
-#'
 QQplot <-
   function(p,
              neff = NULL,

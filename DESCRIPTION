@@ -1,22 +1,23 @@
 Package: GWAS.utils
 Version: 0.0.0.9000
-Title: GWAS specific functions
-Description: What the package does (one paragraph).
+Title: Helper functions for GWAS data
+Description: An R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
 Authors@R: c(
-    person("Sina", "R<U+00FC>eger", , "sina.rueeger@gmail.com", c("aut", "cre")),
-    person("Aur<U+00E9>lien", "Mac<U+00E9>", , "", c("aut")),
-    person("Zolt<U+00E1>n", "Kutalik", , "", c("aut")))
+    person("Sina", "Rüeger", , "sina.rueeger@gmail.com", c("aut", "cre")),
+    person("Aurélien", "Macé", , "", c("aut")),
+    person("Zoltán", "Kutalik", , "", c("aut")))
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
-Imports:
-    dplyr,
-    magrittr
-Suggests: 
+RoxygenNote: 6.1.1
+Suggests:
   testthat, 
+  dplyr,
+  roxygen2,
   Rmpfr
 BugReports: https://github.com/sinarueeger/GWAS.utils/issues
 Depends: R (>= 2.10)
+Imports: 
+    magrittr
