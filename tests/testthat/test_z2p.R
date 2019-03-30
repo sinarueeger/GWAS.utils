@@ -23,7 +23,7 @@ test_that("Testing NAs and Inf", {
 
 test_that("Z can be very large", {
   expect_equal(z2p(c(200, 300)), c(0, 0))
-  expect_warning(
+  expect_message(
     z2p(c(200, 300)),
     "Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'"
   )
