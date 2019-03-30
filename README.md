@@ -6,8 +6,7 @@
 ## Installation
 
 ```
-# install.packages("devtools")
-devtools::install_github("sinarueeger/GWAS.utils")
+remotes::install_github("sinarueeger/GWAS.utils")
 ```
 
 ## Usage
