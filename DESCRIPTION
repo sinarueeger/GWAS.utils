@@ -12,11 +12,12 @@ LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Imports:
-    dplyr,
-    magrittr
 Suggests:
   testthat, 
+  dplyr,
+  roxygen2,
   Rmpfr
 BugReports: https://github.com/sinarueeger/GWAS.utils/issues
 Depends: R (>= 2.10)
+Imports: 
+    magrittr
