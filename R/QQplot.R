@@ -5,7 +5,7 @@
 #' Creates a QQplot, given P-values, which should be uniformly distributed
 #'
 #' @param p numeric vector, values between 0 and 1.
-#' @param neff number of effective tests. see function \code{\link{nbr_eff_tests}}
+#' @param neff number of effective tests. see function \code{\link{eff_nbr_tests}}
 #' @param main Main title
 #' @param col color code
 #' @param add logic, added to plot or not
