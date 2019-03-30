@@ -35,11 +35,16 @@ z2p <- function(Z, method = c("pnorm")) {
 
   if (method == "pnorm") {
     P <- exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2
+
+    if(any(P == 0, na.rm = TRUE))
+      {
+        message("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
+      }
   }
 
   if (method == "Rmpfr::pnorm") {
     ## from https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc
-    sprintf("using method Rmpfr::")
+    message("using method Rmpfr::")
 
     ## remove all NAs
     P <- Rmpfr::mpfr(abs(Z), precBits = 100)
