@@ -4,9 +4,9 @@
 \name{GWAS.utils-package}
 \alias{GWAS.utils}
 \alias{GWAS.utils-package}
-\title{GWAS.utils: GWAS specific functions}
+\title{GWAS.utils: Helper functions for GWAS data}
 \description{
-What the package does (one paragraph).
+An R package with basic helper functions for manipulating GWAS data, including two GWAS datasets.
 }
 \seealso{
 Useful links:
@@ -16,12 +16,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Sina R<U+00FC>eger \email{sina.rueeger@gmail.com}
+\strong{Maintainer}: Sina Rüeger \email{sina.rueeger@gmail.com}
 
 Authors:
 \itemize{
-  \item Aur<U+00E9>lien Mac<U+00E9>
-  \item Zolt<U+00E1>n Kutalik
+  \item Aurélien Macé
+  \item Zoltán Kutalik
 }
 
 }

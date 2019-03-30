@@ -18,7 +18,7 @@ eff_nbr_tests(mat, cor.true = FALSE)
 Calculates the effective number of tests performed in a GWAS, given the LD structure among the SNPs. SNPs that are highly correlated are not counted twice.
 }
 \examples{
-dat.sim <- data.frame(g = rnorm(100)) \%>\% dplyr::mutate(g2 = g*2)
+dat.sim <- data.frame(g = rnorm(100)) \%>\% dplyr::mutate(g2 = g * 2)
 eff_nbr_tests(diag(10), cor.true = TRUE) ## 10, because all are independent
 eff_nbr_tests(dat.sim, cor.true = FALSE)
 }

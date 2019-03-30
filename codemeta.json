@@ -5,8 +5,8 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "GWAS.utils",
-  "description": "What the package does (one paragraph).",
-  "name": "GWAS.utils: GWAS specific functions",
+  "description": "An R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. ",
+  "name": "GWAS.utils: Helper functions for GWAS data",
   "issueTracker": "https://github.com/sinarueeger/GWAS.utils/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.0.0.9000",
@@ -21,17 +21,17 @@
     {
       "@type": "Person",
       "givenName": "Sina",
-      "familyName": "R<U+00FC>eger",
+      "familyName": "Rüeger",
       "email": "sina.rueeger@gmail.com"
     },
     {
       "@type": "Person",
-      "givenName": "Aur<U+00E9>lien",
-      "familyName": "Mac<U+00E9>"
+      "givenName": "Aurélien",
+      "familyName": "Macé"
     },
     {
       "@type": "Person",
-      "givenName": "Zolt<U+00E1>n",
+      "givenName": "Zoltán",
       "familyName": "Kutalik"
     }
   ],
@@ -42,7 +42,7 @@
     {
       "@type": "Person",
       "givenName": "Sina",
-      "familyName": "R<U+00FC>eger",
+      "familyName": "Rüeger",
       "email": "sina.rueeger@gmail.com"
     }
   ],
@@ -106,7 +106,7 @@
   ],
   "codeRepository": "https://github.com/sinarueeger/GWAS.utils",
   "readme": "https://github.com/sinarueeger/GWAS.utils/blob/master/README.md",
-  "fileSize": "194.236KB",
+  "fileSize": "195.033KB",
   "keywords": [
     "gwas",
     "utils",
