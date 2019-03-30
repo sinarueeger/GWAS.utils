@@ -1,7 +1,7 @@
 
 # GWAS.utils 🚧
 
-R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
+`GWAS.utils` is an R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
 
 ## Installation
 
