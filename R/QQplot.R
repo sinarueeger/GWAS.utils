@@ -16,11 +16,10 @@
 #'
 #' @seealso \code{\link{ggGWAS::geom_qqplot()}}
 #' @examples
-#'
+#' 
 #' QQplot(runif(100))
 #' QQplot(runif(100), main = "This is the main title")
 #' QQplot(runif(100), add = TRUE, col = "green")
-#'
 QQplot <-
   function(p,
              neff = NULL,

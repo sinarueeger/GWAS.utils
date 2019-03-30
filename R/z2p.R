@@ -25,9 +25,6 @@
 #' z2p(20, method = "Rmpfr::pnorm")
 #' z2p(200, method = "pnorm") # the default
 #' z2p(200, method = "Rmpfr::pnorm")
-#'
-#'
-#'
 z2p <- function(Z, method = c("pnorm")) {
   if (any(is.infinite(Z))) {
     warning(
@@ -48,7 +45,7 @@ z2p <- function(Z, method = c("pnorm")) {
     P <- Rmpfr::mpfr(abs(Z), precBits = 100)
 
     P[!is.na(Z)] <- 2 * Rmpfr::pnorm(Rmpfr::mpfr(abs(Z[!is.na(Z)]), precBits = 100),
-                                     lower.tail = FALSE, log.p = FALSE
+      lower.tail = FALSE, log.p = FALSE
     )
   }
 
