@@ -8,7 +8,6 @@ export(genomic_inflation)
 export(trans_inv_normal)
 export(z2p)
 importFrom(magrittr,"%>%")
-
 importFrom("grDevices", "gray")
 importFrom("graphics", "lines", "plot", "points")
 importFrom("stats", "cor", "median", "na.omit", "pnorm", "qchisq", "qnorm")
