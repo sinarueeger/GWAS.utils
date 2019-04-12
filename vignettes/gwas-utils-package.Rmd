@@ -1,0 +1,186 @@
+---
+title: "GWAS.utils package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{GWAS.utils package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(GWAS.utils)
+```
+
+`GWAS.utils` is an R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
+
+The functions are basic, some just trivial wrappers with a few lines of code (e.g. `trans_inv_normal()`). But they all tackle a specific problem, for which either no function was elsewhere available, or the function was available, but part of a heavy package. 
+
+Here is a quick overview of what functions are available. 
+
+- `eaf2maf(eaf = eaf_vec)`: Transforms effect allele frequencies into minor allele frequencies.
+- `inv_normal(x = vec)`: Inverse normal transformation of a variable.
+- `z2p(z = z_vec)`: Transforms Z-statistics to P-values, includes an option for very large Z-statistics.
+- `eff_nbr_tests(mat = genotype_df)`: Calculates the effective number of tests of a GWAS, based on the correlation between the SNPs.
+- `QQplot(p = p_vec)`: Q-Q-plot of P-values (uniformly distributed under the null).
+- `genomic_inflation(Z = z_vec)`: Calculates genomic inflation, with either P-values or Z-statistics. 
+
+Further down you will find examples for each of them.
+
+The usefulness of this package for other users, however, are two datasets. Before going into the details of the functions, let me first describe the datasets.
+
+## Data
+
+To my knowledge, there are no real (i.e. not simulated) genetic datasets available in R, hence there are also just a few R examples around that use genetic data. There are two principal reasons for the lack of genetic data in R. First, genetic data is usually securely locked and not publicly available (for good reasons!). Second, genetic data is typically large in size, often hundereds of thousands of columns wide, making it suboptimal to embedded in an R package. The two datasets contained in the `GWAS.utils` package are open source, and restricted in size. 
+
+### openSNP genotype data
+
+There is a public genetic database called [openSNP](https://opensnp.org/), and for the purpose of the [crowdAI](https://www.crowdai.org/) _height prediction challenge_ [Olivier Naret](https://github.com/onaret) curated a genotype dataset that is availabe for download on [zenodo](https://zenodo.org/record/1442755#.XLCKkKaxXUI) (Naret 2018). 
+
+To generate the dataset `opensnp`, I downloaded the dataset from [zenodo](https://zenodo.org/record/1442755#.XLCKkKaxXUI), extracted 21 SNPs on chromosome 1 within the range of 15'000'000 and 20'000'000 bp^[Chromosome 1, 15'000'000 - 20'000'000 encompasses two regions with known human height associations: https://www.nature.com/articles/ng.3097#s2.] from the training dataset of 784 individuals and transformed the vcf file with [PLINK](http://zzz.bwh.harvard.edu/plink/) (Chang _et al._ 2015) into the number of minor alleles (allele dosages): 0 for homozygous major allele (AA), 1 heteozygous (aA or Aa), 2 homozygous minor allele (aa). I then joined the dataset with the height information that was also available and stored the dataset as `opensnp`. 
+
+The data preparation process is described in [opensnp-data.R](https://github.com/sinarueeger/GWAS.utils/blob/master/data-raw/opensnp-data.R). 
+
+Each row represents one individual, the columns the ID, height and 22 genetic variants (SNPs). The SNP name is a combination of SNP identifier and the minor allele. 
+
+```{r}
+skimr::skim_with(factor = list(ordered = NULL))
+skimr::skim(opensnp %>% dplyr::select(-id) %>% dplyr::mutate_at(dplyr::vars(dplyr::starts_with("rs")), as.factor))
+```
+
+### Human height summary statistics
+
+The second dataset are summary statistics from a height meta-analysis published in 2018 by [Yengo _et al. 2018_](https://academic.oup.com/hmg/article/27/20/3641/5067845) (download <a href="https://portals.broadinstitute.org/collaboration/giant/images/c/c8/Meta-analysis_Locke_et_al%2BUKBiobank_2018_UPDATED.txt.gz?download=1">here</a>), estimated from over 600'000 individuals. The 10'000 genetic variants are a random sample from 2'336'269 genetic variants in the dataset. 
+
+
+Each row represents one genetic variant (SNP), the columns the chromosome (`CHR`), position in bp (`POS`), the SNP identifier (`SNP`), the effect allele (`Tested_Allele`), the reference allele (`Other_Allele`), effect allele frequency in the Health and Retirement Study (HRS) (`Freq_Tested_Allele_in_HRS`), effect size (`BETA`), standard error (`SE`), p-value (`P`) and sample size (`N`). 
+
+```{r}
+str(giant)
+```
+
+## Functions
+
+The six functions can be categorised into two groups: four of them take some type of summary statistics as input, two of them individual data (`inv_normal()` and `eff_nbr_tests`). 
+
+### Effective number of tests performed
+
+To account for multiple testing, Bonferroni correction is often used in the context of GWASs. But because of correlation between genetic variants (=[linkage disequilibrium](https://en.wikipedia.org/wiki/Linkage_disequilibrium)), the number of tests performed might over-adjust the significance threshold. Using a method by [Gao _et al._ 2008](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3055936/) we can determine the _effective_ number of tests performed, based on the correlation between the SNPs. The input of the function is a genotype dataset or a correlation matrix, the output a single number. 
+
+```{r}
+eff_nbr_tests(mat = opensnp %>% dplyr::select(-id, -height))
+```
+
+### Inverse normal transformation
+
+This function forces any variable to be normally distributed. 
+
+
+```{r, fig.width = 8, fig.height = 4}
+opensnp$height_tranformed <- GWAS.utils::trans_inv_normal(opensnp$height)
+par(mfrow = c(1,2))
+
+qqnorm(opensnp$height, main = "Untransformed height variable")
+qqline(opensnp$height)
+qqnorm(opensnp$height_tranformed, main = "Untransformed height variable")
+qqline(opensnp$height_tranformed)
+
+## or
+X <- runif(1000)
+X_transformed <- GWAS.utils::trans_inv_normal(runif(1000))
+par(mfrow = c(1,2))
+qqnorm(X, main = "Uniform distributed variable")
+qqline(X)
+qqnorm(X_transformed, main = "Transformed, formerly uniform distributed variable")
+qqline(X_transformed)
+
+```
+
+
+
+### Transformation of effect to minor allele frequency
+
+Simple function to convert effect allele frequencies into minor allele frequencies that range between 0 and 0.5
+
+```{r}
+giant$maf <- eaf2maf(giant$Freq_Tested_Allele_in_HRS)
+plot(giant$Freq_Tested_Allele_in_HRS, giant$maf)
+
+```
+
+### Transformation from Z-statistics to P-value
+
+In the simplest case, transforming a Z-statistic into a P-value is straightforward. 
+
+```{r}
+2 * pnorm(2, lower.tail= FALSE)
+```
+
+But in genetics, P-values can get extremely small, and starting from an absolute Z-statistics of 38, the returned P-value will be 0.  
+
+```{r}
+pnorm(37, lower.tail= FALSE)
+pnorm(38, lower.tail= FALSE)
+```
+
+There is an additional trick, using the log argument and then backtransforming it using `exp`, to compute the P-value for Z=38, but for Z=39 this does not work anymore. 
+
+```{r}
+exp(pnorm(abs(38), log.p = TRUE, lower = FALSE)) * 2
+exp(pnorm(abs(39), log.p = TRUE, lower = FALSE)) * 2
+```
+
+This has to do with the way R can operate small numbers. The package `Rmpfr` provides a solution to this, and the function `z2p` makes use of this functionality in order to deal with very small number. 
+
+```{r}
+z2p(39)
+z2p(39,  method = c("Rmpfr::pnorm"))
+```
+
+Even though the Z-statistics in the `giant` data set are not that large, we can apply the `z2p` function to compare the known P-value with the calculated P-value. 
+
+```{r, fig.width = 4, fig.height = 4}
+giant$P_z2p_function <- z2p(giant$BETA/giant$SE, method = c("Rmpfr::pnorm"))
+plot(-log10(giant$P), -log10(giant$P_z2p_function), main = "Comparison of kown P-value with the\ncalculated P-value through z2p()", ylab = "P_z2p_function", xlab = "P")
+abline(a = 0, b = 1)
+```
+
+
+### QQplot of P-values
+
+P-values should be uniformly distributed under the null hypothesis. A Q-Q-plot checks the deviation from the uniform distribution. There are a number of packages that implement this type of plot (e.g. [qqman](https://cran.r-project.org/web/packages/qqman/index.html)). 
+
+
+```{r, fig.show='hold', fig.width = 4, fig.height = 4}
+QQplot(giant$P, main = "Random sample of 10K SNPs from\nGIANT height summary statistics")
+```
+
+### Genomic inflation factor
+
+To check a GWAS for inflation in P-values, the [genomic inflation factor](https://en.wikipedia.org/wiki/Population_stratification) can be computed, which should be around a value of 1. Compared to other genomic inflation implementations, our function takes two types of summary statistics as input by making an assumption about the P-value origin. 
+
+```{r}
+## use with Z-statistics
+genomic_inflation(Z = giant$BETA/giant$SE)
+
+## or use with P-value
+genomic_inflation(P = giant$P)
+```
+
+
+
+## References
+
+- Chang CC, Chow CC, Tellier LCAM, Vattikuti S, Purcell SM, Lee JJ (2015). _Second-generation PLINK: rising to the challenge of larger and richer datasets_. GigaScience, 4.
+
+- Naret O (2018). _CrowdAI / OpenSNP - height prediction challenge_ [Data set]. Zenodo. http://doi.org/10.5281/zenodo.1442755
+
+- Yengo L, Sidorenko J, Kemper KE, Zheng Z, Wood AR, Weedon MN, Frayling TM, Hirschhorn J, Yang J, Visscher PM, the GIANT Consortium (2018). _Meta-analysis of genome-wide association studies for height and body mass index in ∼700000 individuals of European ancestry_. Human Molecular Genetics, Volume 27, Issue 20, 15 October 2018, Pages 3641–3649, https://doi.org/10.1093/hmg/ddy271.
+
+- Gao X , Starmer J and Martin ER (2008). _A multiple testing correction method for genetic association studies using correlated single nucleotide polymorphisms_. Genet. Epidemiol., 32: 361-369, doi:10.1002/gepi.20310.
