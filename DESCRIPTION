@@ -9,6 +9,7 @@ Authors@R: c(
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/sinarueeger/GWAS.utils
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
@@ -25,3 +26,4 @@ Depends: R (>= 2.10)
 Imports: 
     magrittr
 VignetteBuilder: knitr
+
