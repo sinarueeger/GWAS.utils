@@ -37,13 +37,13 @@ The usefulness of this package for other users, however, are two datasets. Befor
 
 ## Data
 
-To my knowledge, there are no real (i.e. not simulated) genetic datasets available in R, hence there are also just a few R examples around that use genetic data. There are two principal reasons for the lack of genetic data in R. First, genetic data is usually securely locked and not publicly available (for good reasons!). Second, genetic data is typically large in size, often hundereds of thousands of columns wide, making it suboptimal to embedded in an R package. The two datasets contained in the `GWAS.utils` package are open source, and restricted in size. 
+To my knowledge, there are no real (i.e. not simulated) genetic datasets available in R, hence there are also just a few R examples around that use genetic data. There are two principal reasons for the lack of genetic data in R. First, genetic data is usually securely locked and not publicly available (for good reasons!). Second, genetic data is typically large in size, often hundreds of thousands of columns wide, making it suboptimal to embedded in an R package. The two datasets contained in the `GWAS.utils` package are open source, and restricted in size. 
 
 ### openSNP genotype data
 
-There is a public genetic database called [openSNP](https://opensnp.org/), and for the purpose of the [crowdAI](https://www.crowdai.org/) _height prediction challenge_ [Olivier Naret](https://github.com/onaret) curated a genotype dataset that is availabe for download on [zenodo](https://zenodo.org/record/1442755#.XLCKkKaxXUI) (Naret 2018). 
+There is a public genetic database called [openSNP](https://opensnp.org/), and for the purpose of the [crowdAI](https://www.crowdai.org/) _height prediction challenge_ [Olivier Naret](https://github.com/onaret) curated a genotype dataset that is available for download on [zenodo](https://zenodo.org/record/1442755#.XLCKkKaxXUI) (Naret 2018). 
 
-To generate the dataset `opensnp`, I downloaded the dataset from [zenodo](https://zenodo.org/record/1442755#.XLCKkKaxXUI), extracted 21 SNPs on chromosome 1 within the range of 15'000'000 and 20'000'000 bp^[Chromosome 1, 15'000'000 - 20'000'000 encompasses two regions with known human height associations: https://www.nature.com/articles/ng.3097#s2.] from the training dataset of 784 individuals and transformed the vcf file with [PLINK](http://zzz.bwh.harvard.edu/plink/) (Chang _et al._ 2015) into the number of minor alleles (allele dosages): 0 for homozygous major allele (AA), 1 heteozygous (aA or Aa), 2 homozygous minor allele (aa). I then joined the dataset with the height information that was also available and stored the dataset as `opensnp`. 
+To generate the dataset `opensnp`, I downloaded the dataset from [zenodo](https://zenodo.org/record/1442755#.XLCKkKaxXUI), extracted 21 SNPs on chromosome 1 within the range of 15'000'000 and 20'000'000 bp^[Chromosome 1, 15'000'000 - 20'000'000 encompasses two regions with known human height associations: https://www.nature.com/articles/ng.3097#s2.] from the training dataset of 784 individuals and transformed the vcf file with [PLINK](http://zzz.bwh.harvard.edu/plink/) (Chang _et al._ 2015) into the number of minor alleles (allele dosages): 0 for homozygous major allele (AA), 1 heterozygous (Aa), 2 homozygous minor allele (aa). I then joined the dataset with the height information that was also available and stored the dataset as `opensnp`. 
 
 The data preparation process is described in [opensnp-data.R](https://github.com/sinarueeger/GWAS.utils/blob/master/data-raw/opensnp-data.R). 
 
@@ -129,7 +129,7 @@ pnorm(37, lower.tail= FALSE)
 pnorm(38, lower.tail= FALSE)
 ```
 
-There is an additional trick, using the log argument and then backtransforming it using `exp`, to compute the P-value for Z=38, but for Z=39 this does not work anymore. 
+There is an additional trick, using the log argument and then back transforming it using `exp`, to compute the P-value for Z=38, but for Z=39 this does not work anymore. 
 
 ```{r}
 exp(pnorm(abs(38), log.p = TRUE, lower = FALSE)) * 2
