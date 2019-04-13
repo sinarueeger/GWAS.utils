@@ -23,5 +23,5 @@ eff_nbr_tests(diag(10), cor.true = TRUE) ## 10, because all are independent
 eff_nbr_tests(dat.sim, cor.true = FALSE)
 }
 \references{
-Implemented from \link{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
+Implemented from \url{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
 }

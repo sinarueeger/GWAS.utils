@@ -12,9 +12,10 @@
 #'
 #' @return P P-value, same length as Z.
 #' @export
+#' @importFrom stats pnorm
 #'
-#' @details The usual P value calculation for |Z|-statistics < 38 is \code{pnorm(abs(Z), lower = FALSE) * 2} or,
-#' alternatively, \code{exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2}.
+#' @details The usual P value calculation for |Z|-statistics < 38 is \code{pnorm(abs(Z), lower.tail = FALSE) * 2} or,
+#' alternatively, \code{exp(pnorm(abs(Z), log.p = TRUE, lower.tail = FALSE)) * 2}.
 #' For anything that is larger, we can use the R package \code{Rmpfr::pnorm} that helps us with small digits.
 #'
 #' @references See also this post: https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc
@@ -34,7 +35,7 @@ z2p <- function(Z, method = c("pnorm")) {
   }
 
   if (method == "pnorm") {
-    P <- exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2
+    P <- exp(pnorm(abs(Z), log.p = TRUE, lower.tail = FALSE)) * 2
 
     if(any(P == 0, na.rm = TRUE))
       {

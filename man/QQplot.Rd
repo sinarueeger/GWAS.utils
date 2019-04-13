@@ -33,5 +33,5 @@ QQplot(runif(100), main = "This is the main title")
 QQplot(runif(100), add = TRUE, col = "green")
 }
 \seealso{
-\code{\link[ggGWAS]{geom_qqplot}}
+\url{https://github.com/sinarueeger/ggGWAS} (in development) and \code{\link[qqman]{qq}}
 }

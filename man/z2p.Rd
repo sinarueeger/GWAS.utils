@@ -19,8 +19,8 @@ Takes Z-statistic(s) as input and outputs P-value(s). This function works
 for absolute Z-statistics up to x
 }
 \details{
-The usual P value calculation for |Z|-statistics < 38 is \code{pnorm(abs(Z), lower = FALSE) * 2} or,
-alternatively, \code{exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2}.
+The usual P value calculation for |Z|-statistics < 38 is \code{pnorm(abs(Z), lower.tail = FALSE) * 2} or,
+alternatively, \code{exp(pnorm(abs(Z), log.p = TRUE, lower.tail = FALSE)) * 2}.
 For anything that is larger, we can use the R package \code{Rmpfr::pnorm} that helps us with small digits.
 }
 \examples{

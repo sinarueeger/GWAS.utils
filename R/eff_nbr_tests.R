@@ -8,8 +8,9 @@
 #'
 #' @return \code{zhc.correction} number of effective tests
 #' @export
+#' @importFrom stats cor
 #'
-#' @references Implemented from \link{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
+#' @references Implemented from \url{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
 #'
 #' @examples
 #' dat.sim <- data.frame(g = rnorm(100)) %>% dplyr::mutate(g2 = g * 2)
