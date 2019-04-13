@@ -2,25 +2,11 @@
 # GWAS.utils
 `GWAS.utils` is an R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
 
-## Installation
+## Install
 
 ```
 remotes::install_github("sinarueeger/GWAS.utils")
 ```
-
-## Vignette
-
-To install the package *including* the vignette, use the following command:
-
-```
-remotes::install_github("sinarueeger/GWAS.utils", build = TRUE, 
-build_opts = c("--no-resave-data", "--no-manual")
-```
-
-Then look at the vignette with `vignette("gwas-utils-package")`.
-
-(The vignette needs to have the `Rmpfr` package installed. Use an [old version](https://stackoverflow.com/a/48784649/11256920) if you have not updated R in a while.)
-
 
 ## Usage
 
@@ -44,3 +30,16 @@ And two datasets:
 
 - `giant`: _Summary statistics_ of 10'000 SNPs from a GWAS in human body height.
 - `opensnp` data: _Genotype data_ and human body height of 784 individuals from the publicly accessible [openSNP database](http://opensnp.org/snps). 
+
+## Vignette
+
+To install the package *including* the vignette, use the following command:
+
+```
+remotes::install_github("sinarueeger/GWAS.utils", build = TRUE, 
+build_opts = c("--no-resave-data", "--no-manual")
+```
+
+Then look at the vignette with `vignette("gwas-utils-package")`.
+
+(The vignette needs to have the `Rmpfr` package installed. Use an [old version](https://stackoverflow.com/a/48784649/11256920) if you have not updated R in a while.)
