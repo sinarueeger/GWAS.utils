@@ -1,7 +1,7 @@
 ---
 title: GWAS.utils
 subtitle: Quick introduction to GWAS.utils
-author: Sina Rüeger
+author: Sina Rueger
 date: "`r Sys.Date()`"
 show_toc: true
 slug: gwasutils
