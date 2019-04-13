@@ -3,3 +3,6 @@
 ^codemeta\.json$
 ^cookbookRsina\.Rproj$
 ^\.Rproj\.user$
+^README.Rmd$
+^data-raw$
+^GWAS.utils.Rproj$
