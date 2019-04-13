@@ -13,6 +13,10 @@
 #'
 #' @return plot (base)
 #' @export
+#' @importFrom grDevices gray
+#' @importFrom graphics lines
+#' @importFrom graphics plot
+#' @importFrom graphics points
 #'
 #' @seealso \code{\link[ggGWAS]{geom_qqplot}}
 #' @examples

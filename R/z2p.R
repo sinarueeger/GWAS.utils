@@ -12,6 +12,7 @@
 #'
 #' @return P P-value, same length as Z.
 #' @export
+#' @importFrom stats pnorm
 #'
 #' @details The usual P value calculation for |Z|-statistics < 38 is \code{pnorm(abs(Z), lower = FALSE) * 2} or,
 #' alternatively, \code{exp(pnorm(abs(Z), log.p = TRUE, lower = FALSE)) * 2}.

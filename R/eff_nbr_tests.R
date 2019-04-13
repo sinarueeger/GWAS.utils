@@ -8,6 +8,7 @@
 #'
 #' @return \code{zhc.correction} number of effective tests
 #' @export
+#' @importFrom stats cor
 #'
 #' @references Implemented from \link{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
 #'

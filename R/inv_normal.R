@@ -6,12 +6,14 @@
 #' @param const numeric value, 3/8 and 0.5 recommended.
 #' @return Numeric vector of length(x) that is standard normally distributed
 #' @export
+#' @importFrom stats qnorm
+#' @importFrom stats na.omit
 #'
 #' @references See also https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2921808/
 #'
 #' @examples
 #' X <- runif(1000)
-#' 
+#'
 #' X.trans <- trans_inv_normal(X)
 #' par(mfrow = c(1, 2))
 #' hist(X)
