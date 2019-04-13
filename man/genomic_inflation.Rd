@@ -17,9 +17,6 @@ value
 \description{
 Genomic inflation factor
 }
-\details{
-see
-}
 \examples{
 
 data("giant")

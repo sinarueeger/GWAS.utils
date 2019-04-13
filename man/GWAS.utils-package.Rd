@@ -11,6 +11,7 @@ An R package with basic helper functions for manipulating GWAS data, including t
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://github.com/sinarueeger/GWAS.utils}
   \item Report bugs at \url{https://github.com/sinarueeger/GWAS.utils/issues}
 }
 

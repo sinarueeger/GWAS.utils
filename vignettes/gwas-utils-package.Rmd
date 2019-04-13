@@ -1,8 +1,15 @@
 ---
-title: "GWAS.utils package"
-output: rmarkdown::html_vignette
+title: GWAS.utils
+subtitle: Quick introduction to GWAS.utils
+author: Sina Rüeger
+date: "`r Sys.Date()`"
+show_toc: true
+slug: gwasutils
+output: 
+  rmarkdown::html_vignette:
+      toc: yes
 vignette: >
-  %\VignetteIndexEntry{GWAS.utils package}
+  %\VignetteIndexEntry{A brief introduction to GWAS.utils}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
