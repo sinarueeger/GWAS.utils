@@ -11,8 +11,7 @@
 \item{\code{pos}}{Physical position (Genome build hg19)}
 \item{\code{tested_allele}}{Allele corresponding to the effect size \code{beta}}
 \item{\code{other_allele}}{Other allele}
-\item{\code{freq_tested_allele_hrs}}{Frequency of the tested allele in the
-Health and Retirement Study (from 8,552 unrelated participants).}
+\item{\code{freq_tested_allele_hrs}}{Frequency of the tested allele in the Health and Retirement Study (from 8,552 unrelated participants).}
 \item{\code{beta}}{(Marginal) effect size}
 \item{\code{se}}{Standard error of the effect size}
 \item{\code{p}}{P-value of the effect size}
@@ -28,14 +27,12 @@ giant
 }
 \description{
 Associations between human body height and genetic markers.
-This is a random selection of 10'000 SNPs from summary statistics produced
-by the manuscript of Yengo et al. (2018).
+This is a random selection of 10'000 SNPs from summary statistics produced by the manuscript of Yengo et al. (2018).
 }
 \details{
-The summary statistics by running a genome-wide association study
-(GWAS) for height in ~700K individuals of European ancestry. Each line in the
-dataset corresponds to the association between height (transformed) as an
-outcome and one genetic marker (indicated in \code{snp}) plus covariates as
-predictors.
+The summary statistics by running a genome-wide association study (GWAS) for
+height in ~700K individuals of European ancestry. Each line in the dataset corresponds
+to the association between height (transformed) as an outcome and one genetic marker
+(indicated in \code{snp}) plus covariates as predictors.
 }
 \keyword{datasets}

@@ -9,8 +9,7 @@ z2p(Z, method = c("pnorm"))
 \arguments{
 \item{Z}{Z-statistic, numeric vector.}
 
-\item{method}{\code{"prnorm"} (default), \code{"Rmpfr::pnorm"} (from the
-Rmpfr package)}
+\item{method}{\code{"prnorm"} (default), \code{"Rmpfr::pnorm"} (from the Rmpfr package)}
 }
 \value{
 P P-value, same length as Z.
@@ -20,12 +19,9 @@ Takes Z-statistic(s) as input and outputs P-value(s). This function works
 for absolute Z-statistics up to x
 }
 \details{
-The usual P value calculation for |Z|-statistics < 38 is
-\code{pnorm(abs(Z), lower.tail = FALSE) * 2} or,
-alternatively,
-\code{exp(pnorm(abs(Z), log.p = TRUE, lower.tail = FALSE)) * 2}.
-For anything that is larger, we can use the R package \code{Rmpfr::pnorm}
-that helps us with small digits.
+The usual P value calculation for |Z|-statistics < 38 is \code{pnorm(abs(Z), lower.tail = FALSE) * 2} or,
+alternatively, \code{exp(pnorm(abs(Z), log.p = TRUE, lower.tail = FALSE)) * 2}.
+For anything that is larger, we can use the R package \code{Rmpfr::pnorm} that helps us with small digits.
 }
 \examples{
 z2p(c(-1.959964, 1.96))
@@ -35,6 +31,5 @@ z2p(200, method = "pnorm") # the default
 z2p(200, method = "Rmpfr::pnorm")
 }
 \references{
-See also this post:
-\url{https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc}
+See also this post: https://stackoverflow.com/questions/46416027/how-to-compute-p-values-from-z-scores-in-r-when-the-z-score-is-large-pvalue-muc
 }

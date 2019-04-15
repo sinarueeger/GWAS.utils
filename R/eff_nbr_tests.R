@@ -1,12 +1,9 @@
 
 #' Effective number of tests
 #'
-#' Calculates the effective number of tests performed in a GWAS,
-#' given the LD structure among the SNPs. SNPs that are highly
-#' correlated are not counted twice.
+#' Calculates the effective number of tests performed in a GWAS, given the LD structure among the SNPs. SNPs that are highly correlated are not counted twice.
 #'
-#' @param mat matrix, either individual by SNPs (n x p) matrix,
-#' or correlation matrix between SNPs
+#' @param mat matrix, either individual by SNPs (n x p) matrix, or correlation matrix between SNPs
 #' @param cor.true indicates if option mat is a correlation matrix or not
 #'
 #' @return \code{zhc.correction} number of effective tests
