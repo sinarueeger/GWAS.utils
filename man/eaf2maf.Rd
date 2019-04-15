@@ -24,5 +24,4 @@ To turn MAFs into EAFs knowledge about the effect allele is needed.
 \examples{
 eaf2maf(0.7)
 eaf2maf(c(0.78, 0.32))
-
 }

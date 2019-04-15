@@ -17,14 +17,10 @@ value
 \description{
 Genomic inflation factor
 }
-\details{
-see
-}
 \examples{
 
-data("giant")
-genomic_inflation(Z = giant$BETA/giant$SE)
+## data("giant")
+genomic_inflation(Z = giant$BETA / giant$SE)
 ## should give the same as
 genomic_inflation(P = giant$P)
-
 }

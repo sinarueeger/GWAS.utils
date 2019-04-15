@@ -1,45 +1,45 @@
 
-# GWAS.utils 🚧
+# GWAS.utils
+`GWAS.utils` is an R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
 
-R package with basic helper functions for GWAS data. 
-
-## Installation
+## Install
 
 ```
-# install.packages("devtools")
-devtools::install_github("sinarueeger/GWAS.utils")
+remotes::install_github("sinarueeger/GWAS.utils")
 ```
 
-## Functionality
+## Usage
 
-There are currenlty five functions: 
+There are six functions: 
 
-- `eaf2maf`: Transforms effect allele frequencies into minor allele frequencies. 
-  
-  *Input* ➡️ : numeric vector
-  
-  *Output* 🔙 : numeric vector. 
-  
-- `QQplot`: Q-Q-plot of P-values (uniformly distributed under the null). 
-  
-  *Input* ➡️ : numeric vector
-  
-  *Output*: base plot. 
+- `eaf2maf(eaf = eaf_vec)`: Transforms effect allele frequencies into minor allele frequencies. 
 
-- `z2p`: Transforms Z-statistics to P-values, includes an option for very large Z-statistics. 
+- `inv_normal(x = vec)`: Inverse normal transformation of a variable.
 
-  *Input* ➡️ : numeric vector
+- `z2p(z = z_vec)`: Transforms Z-statistics to P-values, includes an option for very large Z-statistics. 
 
-  *Output* 🔙 : numeric vector. 
+- `eff_nbr_tests(mat = genotype_df)`: Calculates the effective number of tests of a GWAS, based on the correlation between the SNPs. 
 
-- `eff_nbr_tests`: Calculates the effective number of tests of a GWAS, based on the correlation between the SNPs. 
-  
-  *Input* ➡️ : genotype data or correlation matrix
-  
-  *Output* 🔙 : effective number of tests. 
+- `QQplot(p = p_vec)`: Q-Q-plot of P-values (uniformly distributed under the null). 
 
-- `inv_normal`: Inverse normal transformation of a variable.
+- `genomic_inflation(Z = z_vec)`: Calculates genomic inflation, with either P-values or Z-statistics. 
+Most of the functions are just handy and trivial helper functions. For `QQplot()` and `genomic_inflation()` there are a number of other packages with similar functions, e.g. `GenABEL` or `qqman`. Our `genomic_inflation` function takes two types of summary statistics as input by making an assumption about the P-value origin. And `QQplot` can inlcude the number of effective tests. 
 
-  *Input* ➡️ : numeric vector
 
-  *Output* 🔙 : numeric vector.
+And two datasets:
+
+- `giant`: _Summary statistics_ of 10'000 SNPs from a GWAS in human body height.
+- `opensnp` data: _Genotype data_ and human body height of 784 individuals from the publicly accessible [openSNP database](http://opensnp.org/snps). 
+
+## Vignette
+
+To install the package *including* the vignette, use the following command:
+
+```
+remotes::install_github("sinarueeger/GWAS.utils", build = TRUE, 
+build_opts = c("--no-resave-data", "--no-manual")
+```
+
+Then look at the vignette with `vignette("gwas-utils-package")`.
+
+(The vignette needs to have the `Rmpfr` package installed. Use an [old version](https://stackoverflow.com/a/48784649/11256920) if you have not updated R in a while.)

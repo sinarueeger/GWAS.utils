@@ -21,10 +21,10 @@ Transforms any variable into a standard normal distributed variable N(0,1).
 X <- runif(1000)
 
 X.trans <- trans_inv_normal(X)
-par(mfrow = c(1,2))
+par(mfrow = c(1, 2))
 hist(X)
 hist(X.trans)
-par(mfrow = c(1,2))
+par(mfrow = c(1, 2))
 qqnorm(X)
 qqnorm(X.trans)
 }

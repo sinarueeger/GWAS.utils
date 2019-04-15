@@ -10,7 +10,8 @@ QQplot(p, neff = NULL, main = "QQplot", col = "black", add = FALSE,
 \arguments{
 \item{p}{numeric vector, values between 0 and 1.}
 
-\item{neff}{number of effective tests. see function \code{\link{nbr_eff_tests}}}
+\item{neff}{number of effective tests,
+see function \code{\link{eff_nbr_tests}}}
 
 \item{main}{Main title}
 
@@ -31,8 +32,8 @@ Creates a QQplot, given P-values, which should be uniformly distributed
 QQplot(runif(100))
 QQplot(runif(100), main = "This is the main title")
 QQplot(runif(100), add = TRUE, col = "green")
-
 }
 \seealso{
-\code{\link{ggGWAS::geom_qqplot()}}
+\url{https://github.com/sinarueeger/ggGWAS} (in development)
+and \code{\link[qqman]{qq}}
 }

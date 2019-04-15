@@ -7,7 +7,8 @@
 eff_nbr_tests(mat, cor.true = FALSE)
 }
 \arguments{
-\item{mat}{matrix, either individual by SNPs (n x p) matrix, or correlation matrix between SNPs}
+\item{mat}{matrix, either individual by SNPs (n x p) matrix,
+or correlation matrix between SNPs}
 
 \item{cor.true}{indicates if option mat is a correlation matrix or not}
 }
@@ -15,13 +16,15 @@ eff_nbr_tests(mat, cor.true = FALSE)
 \code{zhc.correction} number of effective tests
 }
 \description{
-Calculates the effective number of tests performed in a GWAS, given the LD structure among the SNPs. SNPs that are highly correlated are not counted twice.
+Calculates the effective number of tests performed in a GWAS,
+given the LD structure among the SNPs. SNPs that are highly
+correlated are not counted twice.
 }
 \examples{
-dat.sim <- data.frame(g = rnorm(100)) \%>\% dplyr::mutate(g2 = g*2)
+dat.sim <- data.frame(g = rnorm(100)) \%>\% dplyr::mutate(g2 = g * 2)
 eff_nbr_tests(diag(10), cor.true = TRUE) ## 10, because all are independent
 eff_nbr_tests(dat.sim, cor.true = FALSE)
 }
 \references{
-Implemented from \link{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
+Implemented from \url{https://www.ncbi.nlm.nih.gov/pubmed/18271029}
 }
