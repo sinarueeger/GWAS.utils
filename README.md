@@ -37,7 +37,7 @@ To install the package *including* the vignette, use the following command:
 
 ```
 remotes::install_github("sinarueeger/GWAS.utils", build = TRUE, 
-build_opts = c("--no-resave-data", "--no-manual")
+build_opts = c("--no-resave-data", "--no-manual"))
 ```
 
 Then look at the vignette with `vignette("gwas-utils-package")`.
