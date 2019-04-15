@@ -37,10 +37,9 @@ z2p <- function(Z, method = c("pnorm")) {
   if (method == "pnorm") {
     P <- exp(pnorm(abs(Z), log.p = TRUE, lower.tail = FALSE)) * 2
 
-    if(any(P == 0, na.rm = TRUE))
-      {
-        message("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
-      }
+    if (any(P == 0, na.rm = TRUE)) {
+      message("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
+    }
   }
 
   if (method == "Rmpfr::pnorm") {
@@ -50,8 +49,10 @@ z2p <- function(Z, method = c("pnorm")) {
     ## remove all NAs
     P <- Rmpfr::mpfr(abs(Z), precBits = 100)
 
-    P[!is.na(Z)] <- 2 * Rmpfr::pnorm(Rmpfr::mpfr(abs(Z[!is.na(Z)]), precBits = 100),
-      lower.tail = FALSE, log.p = FALSE
+    P[!is.na(Z)] <- 2 * Rmpfr::pnorm(Rmpfr::mpfr(abs(Z[!is.na(Z)]),
+      precBits = 100
+    ),
+    lower.tail = FALSE, log.p = FALSE
     )
   }
 
