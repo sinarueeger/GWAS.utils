@@ -22,7 +22,7 @@
 #' @seealso \url{https://github.com/sinarueeger/ggGWAS} (in development)
 #' and \code{\link[qqman]{qq}}
 #' @examples
-#'
+#' 
 #' QQplot(runif(100))
 #' QQplot(runif(100), main = "This is the main title")
 #' QQplot(runif(100), add = TRUE, col = "green")

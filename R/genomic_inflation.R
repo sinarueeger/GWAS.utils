@@ -12,7 +12,7 @@
 #' @importFrom stats qnorm
 #'
 #' @examples
-#'
+#' 
 #' ## data("giant")
 #' genomic_inflation(Z = giant$BETA / giant$SE)
 #' ## should give the same as
