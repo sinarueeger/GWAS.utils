@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' X <- runif(1000)
-#'
+#' 
 #' X.trans <- trans_inv_normal(X)
 #' par(mfrow = c(1, 2))
 #' hist(X)
