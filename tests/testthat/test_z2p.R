@@ -25,7 +25,8 @@ test_that("Z can be very large", {
   expect_equal(z2p(c(200, 300)), c(0, 0))
   expect_message(
     z2p(c(200, 300)),
-    "Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'"
+    "Some P-values are equal to 0.
+    Try using the option method = 'Rmpfr::pnorm'"
   )
   expect_equal(z2p(c(200, 300), method = "Rmpfr::pnorm"), new("mpfr", .Data = list(new("mpfr1", prec = 100L, exp = c(
     -28861L,

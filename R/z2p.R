@@ -34,8 +34,7 @@
 z2p <- function(Z, method = c("pnorm")) {
   if (any(is.infinite(Z))) {
     warning(
-      "The 'Z' vector contains infinite values. These will be turned into NAs,
-      because no meaninful P value can be calculated from that."
+      "The 'Z' vector contains infinite values. These will be turned into NAs, because no meaninful P value can be calculated from that."
     )
     is.na(Z) <- is.infinite(Z)
   }
@@ -45,8 +44,7 @@ z2p <- function(Z, method = c("pnorm")) {
 
     if(any(P == 0, na.rm = TRUE))
       {
-        message("Some P-values are equal to 0.
-                Try using the option method = 'Rmpfr::pnorm'")
+        message("Some P-values are equal to 0. Try using the option method = 'Rmpfr::pnorm'")
       }
   }
 

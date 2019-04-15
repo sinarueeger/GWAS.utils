@@ -19,8 +19,7 @@
 #' eaf2maf(c(0.78, 0.32))
 eaf2maf <- function(eaf = NULL) {
   if (any(is.infinite(eaf))) {
-    warning("The 'eaf' vector contains infinite values.
-            These will be turned into NAs.")
+    warning("The 'eaf' vector contains infinite values. These will be turned into NAs.")
     is.na(eaf) <- is.infinite(eaf)
   }
 
