@@ -22,6 +22,9 @@ Suggests:
     rmarkdown,
     skimr,
     covr
+Remotes: 
+    sinarueeger/GWAS.utils,
+    VPetukhov/ggrastr
 BugReports: https://github.com/sinarueeger/GWAS.utils/issues
 Depends: R (>= 2.10)
 Imports: 
