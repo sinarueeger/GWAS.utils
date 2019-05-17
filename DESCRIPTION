@@ -20,10 +20,10 @@ Suggests:
     Rmpfr,
     knitr,
     rmarkdown,
-    skimr
+    skimr,
+    covr
 BugReports: https://github.com/sinarueeger/GWAS.utils/issues
 Depends: R (>= 2.10)
 Imports: 
     magrittr
 VignetteBuilder: knitr
-
