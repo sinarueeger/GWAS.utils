@@ -1,5 +1,5 @@
 Package: GWAS.utils
-Version: 0.0.0.9000
+Version: 0.1
 Title: Helper functions for GWAS data
 Description: An R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
 Authors@R: c(
