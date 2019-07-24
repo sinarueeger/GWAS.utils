@@ -19,12 +19,13 @@ remotes::install_github("sinarueeger/GWAS.utils")
 Install including vignettes: 
 
 ```
-remotes::install_github("sinarueeger/GWAS.utils", build = TRUE, build_opts = c("--no-resave-data", "--no-manual"))
+remotes::install_github("sinarueeger/GWAS.utils", build = TRUE, 
+build_opts = c("--no-resave-data", "--no-manual"))
+
 vignette("gwas-utils-package")
 ```
 
 Note: The vignette needs to have the `Rmpfr` package installed. Use an [old version](https://stackoverflow.com/a/48784649/11256920) if you have not updated R in a while.
-
 
 ## Usage
 
