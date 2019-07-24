@@ -9,7 +9,7 @@
   "name": "GWAS.utils: Helper functions for GWAS data",
   "issueTracker": "https://github.com/sinarueeger/GWAS.utils/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.0.9000",
+  "version": "0.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -130,6 +130,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=skimr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "covr",
+      "name": "covr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=covr"
     }
   ],
   "softwareRequirements": [
@@ -158,6 +170,9 @@
     "gwas",
     "utils",
     "maf",
-    "qqplot"
+    "qqplot",
+    "rstats",
+    "r-package",
+    "r"
   ]
 }
