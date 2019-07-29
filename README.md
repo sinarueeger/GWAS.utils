@@ -9,11 +9,14 @@
   
 `GWAS.utils` is an R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
 
+To get started, please refer to this [vignette](https://sinarueeger.github.io/GWAS.utils/articles/gwas-utils-package.html).
+
 ## Install
 
 ```
 remotes::install_github("sinarueeger/GWAS.utils")
 ```
+
 
 
 
