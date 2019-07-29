@@ -4,6 +4,7 @@
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/sinarueeger/GWAS.utils.svg?branch=master)](https://travis-ci.org/sinarueeger/GWAS.utils)
 [![Codecov test coverage](https://codecov.io/gh/sinarueeger/GWAS.utils/branch/master/graph/badge.svg)](https://codecov.io/gh/sinarueeger/GWAS.utils?branch=master)
+[![DOI](https://zenodo.org/badge/140065340.svg)](https://zenodo.org/badge/latestdoi/140065340)
 <!-- badges: end -->
   
 `GWAS.utils` is an R package with basic helper functions for manipulating GWAS data, including two GWAS datasets. 
